@@ -13,7 +13,9 @@ class App extends Component {
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
-          <Button type="primary" href="https://reactjs.org" icon="select">Learn React</Button>
+          <Button type="primary" href="https://reactjs.org" icon="select">
+            Learn React
+          </Button>
         </header>
       </div>
     );
