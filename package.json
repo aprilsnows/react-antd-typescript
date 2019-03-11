@@ -1,5 +1,5 @@
 {
-  "name": "react-ant-typescript",
+  "name": "react-antd-typescript",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,7 +23,12 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
-    "lint": "tslint --project tsconfig.json --format codeFrame"
+    "lint": "tslint --project tsconfig.json --format codeFrame",
+    "docker:dev": "docker-compose -f ./docker/docker-compose.dev.yml up",
+    "docker:build": "docker-compose -f ./docker/docker-compose.dev.yml build",
+    "docker-prod:dev": "docker-compose -f ./docker/docker-compose.yml up",
+    "docker-prod:build": "docker-compose -f ./docker/docker-compose.yml build",
+    "docker-hub:build": "docker build  -f Dockerfile.hub -t  react-antd-typescript ./"
   },
   "eslintConfig": {
     "extends": "react-app"
