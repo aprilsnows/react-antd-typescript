@@ -23,6 +23,7 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
+    "lint-staged": "lint-staged",
     "lint:prettier": "check-prettier lint",
     "lint": "tslint --project tsconfig.json --format codeFrame && yarn lint:prettier",
     "docker:dev": "docker-compose -f ./docker/docker-compose.dev.yml up",
@@ -42,9 +43,22 @@
   ],
   "devDependencies": {
     "check-prettier": "^1.0.1",
+    "lint-staged": "^8.1.5",
     "prettier": "1.16.4",
     "tslint": "^5.13.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^3.6.0"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx,json,jsx,less}": [
+      "yarn run lint:prettier",
+      "git add"
+    ],
+    "**/*.{js,jsx}": "yarn lint-staged:js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged"
+    }
   }
 }
